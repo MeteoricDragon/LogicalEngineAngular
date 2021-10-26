@@ -24,7 +24,7 @@ namespace LogicalEngine.EngineParts
         public CarPart(Engine engine)
         {
             Engine = engine;
-            BackupSources = new List<CarPart>();
+            BackupSources = new List<UnitContainer>();
         }
 
         public void AssignTargetPart(List<CarPart> subscribers)

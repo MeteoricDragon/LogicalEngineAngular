@@ -6,7 +6,7 @@ namespace LogicalEngine.EngineParts
 {
     public abstract class UnitContainer
     {
-        public List<CarPart> BackupSources { get; set; }
+        public List<UnitContainer> BackupSources { get; set; }
         virtual public string UserFriendlyName { get => "Unit Container"; }
         virtual public string UnitTypeSent { get => "Units"; }
         virtual public int UnitsMax { get => 40; }
@@ -31,7 +31,7 @@ namespace LogicalEngine.EngineParts
                  && !HasEnoughToDrain(UnitsToConsume)
                 )
             {
-                foreach (CarPart source in BackupSources)
+                foreach (UnitContainer source in BackupSources)
                 {
                     var foundUnits = source.TryTransferUnits(this);
                     if (foundUnits)
