@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LogicalEngineAngular.Repository
 {
-    interface IRepository
+    public interface IRepository
     {
         Task<List<T>> SelectAll<T>() where T : class;
         Task<T> SelectById<T>(long id) where T : class;
