@@ -10,11 +10,11 @@ namespace LogicalEngineAngular.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MemberController : ControllerBase
+    public class CarPartController : ControllerBase
     {
         private readonly IRepository _repository;
 
-        public MemberController(IRepository repository)
+        public CarPartController(IRepository repository)
         {
             _repository = repository;
         }

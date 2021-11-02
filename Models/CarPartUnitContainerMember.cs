@@ -15,7 +15,7 @@ namespace LogicalEngineAngular.Models
         [Column(TypeName = "nvarchar(50)")]
         public string PartCode { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
-        public string UnitsOwned { get; set; }
+        [Column(TypeName = "int")]
+        public int UnitsOwned { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using LogicalEngineAngular.Models;
+using LogicalEngineAngular.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -29,6 +30,7 @@ namespace LogicalEngineAngular
             });
             string connectionString = Configuration.GetConnectionString("default");
             services.AddDbContext<AppDBContext>(c => c.UseSqlServer(connectionString));
+            services.AddTransient<IRepository, CarPartRepository<AppDBContext>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

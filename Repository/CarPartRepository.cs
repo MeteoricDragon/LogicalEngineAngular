@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LogicalEngineAngular.Repository
 {
-    public class Repository<TDbContext> : IRepository where TDbContext : DbContext
+    public class CarPartRepository<TDbContext> : IRepository where TDbContext : DbContext
     {
         protected TDbContext dbContext;
 
-        public Repository(TDbContext context)
+        public CarPartRepository(TDbContext context)
         {
             dbContext = context;
         }
