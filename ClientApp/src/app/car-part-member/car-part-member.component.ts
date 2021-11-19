@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarPartMember } from '../shared/car-part-member.model';
+import { CarPartMemberService } from '../shared/car-part-member.service';
 
 @Component({
   selector: 'app-car-part-member',
@@ -8,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarPartMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: CarPartMemberService ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.service.refreshList();
   }
 
+  populateForm(selectedRecord: CarPartMember)
+  {
+    this.service.formData = Object.assign({}, selectedRecord);
+  }
+
+  onDelete(id: number)
+  {
+    this.service.deleteMember(id)
+      .subscribe(
+        res => { this.service.refreshList(); },
+        err => { console.log(err) }
+      )
+  }
 }
